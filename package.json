@@ -1,0 +1,19 @@
+{
+  "name": "agusf",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AGUSFTeamC/AGU-Software-Engineering-Project-Back-End.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AGUSFTeamC/AGU-Software-Engineering-Project-Back-End/issues"
+  },
+  "homepage": "https://github.com/AGUSFTeamC/AGU-Software-Engineering-Project-Back-End#readme"
+}
