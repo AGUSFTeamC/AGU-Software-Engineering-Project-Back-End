@@ -4,7 +4,7 @@ function randomInt (low, high) {
     return Math.floor(Math.random() * (high - low) + low);
 }
 
-const wss = new WebSocket.Server({ port: 8080 });
+const wss = new WebSocket.Server({ port: 80 });
 
 wss.on('connection', function connection(ws) {
   var intervalId;
