@@ -1,7 +1,7 @@
 {
   "name": "agusf",
   "version": "1.0.0",
-  "description": "",
+  "description": "Backend part of the project",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/AGUSFTeamC/AGU-Software-Engineering-Project-Back-End/issues"
   },
-  "homepage": "https://github.com/AGUSFTeamC/AGU-Software-Engineering-Project-Back-End#readme"
+  "homepage": "https://github.com/AGUSFTeamC/AGU-Software-Engineering-Project-Back-End#readme",
+  "dependencies": {
+    "ws": "^2.2.3"
+  }
 }
