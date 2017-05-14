@@ -4,7 +4,7 @@ function randomInt (low, high) {
     return Math.floor(Math.random() * (high - low) + low);
 }
 
-const wss = new WebSocket.Server({ port: 80 });
+const wss = new WebSocket.Server({ port: 443 });
 
 wss.on('connection', function connection(ws) {
   var intervalId;
@@ -27,7 +27,7 @@ wss.on('connection', function connection(ws) {
           clearInterval(intervalId);
         if(message.delay)
           delay = message.delay;
-
+      
         allDevices = message.allDevices;
 
         intervalId = setInterval(function() {
@@ -39,14 +39,17 @@ wss.on('connection', function connection(ws) {
           };
 
           for (var i = 0; i < allDevices.length; i++) {
-            response.allDevices.push("Temperature: 123 Kelvin\nStatus: OK")
+            response.allDevices.push("Temperature: "+randomInt(10, 100)+" Celsius\nStatus: OK")
           }
 
-          for (var i = 0; i < 5; i++) {
-            response.generalCharts.push({x: runTime, y: randomInt(Math.log2(runTime) * 0.8, Math.log2(runTime) * 1.2)})
+          for (var i = 0; i < allDevices.length; i++) {
+            response.generalCharts.push({x: runTime, y: randomInt(Math.log2(runTime) * (0.8+i*0.1), Math.log2(runTime) * (1.2+i*0.1))})
           }
-
-          ws.send(JSON.stringify(response));
+          if(ws.readyState == ws.OPEN)
+            ws.send(JSON.stringify(response));
+          else {
+            console.log('errorr' + ws.readyState);
+          }
         }, delay);
 
         break;
