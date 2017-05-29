@@ -12,6 +12,17 @@ wss.on('connection', function connection(ws) {
   var runTime = 0;
   var allDevices = [];
 
+  var pingInterval = setInterval(function() {
+    if(ws.readyState === WebSocket.OPEN)
+      ws.send(JSON.stringify({
+        type: 'ping'
+      }))
+    else {
+      clearInterval(pingInterval);
+    }
+  });
+
+
   ws.on('message', function incoming(message) {
 
     try {
@@ -27,7 +38,7 @@ wss.on('connection', function connection(ws) {
           clearInterval(intervalId);
         if(message.delay)
           delay = message.delay;
-      
+
         allDevices = message.allDevices;
 
         intervalId = setInterval(function() {
